@@ -58,7 +58,27 @@
                 alert("Masukkan nama kota terlebih dahulu!");
                 return;
             }
+        const urlapi = "https://api.weatherapi.com/v1/current.json?key=fa8b1ac66aa344fc9ac11211250610&q=" + kota + "&aqi=no";
             
+            $.ajax({
+                url: urlapi,
+                method: 'GET',
+                success: function(data) {
+                    console.log(data);
+                    const info = `
+                        <p><b>Negara:</b> ${data.location.country}</p>
+                        <p><b>Kota:</b> ${data.location.name}</p>
+                        <p><b>Suhu:</b> ${data.current.temp_c} °C</p>
+                        <p><b>Kelembapan:</b> ${data.current.humidity}%</p>
+                        <p><b>Kondisi:</b> ${data.current.condition.text}</p>
+                    `;
+                    $("#tampilan").html(info);
+                },
+                error: function() {
+                    $("#tampilan").html("<p style='color:red;'>Data tidak ditemukan. Coba lokasi lain.</p>");
+                }
+            });
+        });
     </script>
 
 </html>
