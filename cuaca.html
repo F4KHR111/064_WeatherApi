@@ -1,7 +1,7 @@
 <html>
-    <head>
-        <title>INFO CUACA</title>
-      <style>
+<head>
+    <title>INFO CUACA</title>
+    <style>
         body {
             font-family: Arial, sans-serif;
             margin: 40px;
@@ -35,20 +35,19 @@
             margin-top: 20px;
             font-size: 18px;
         }
-      </style>
-    </head>
-
-    <body>
-        <h2>INFO CUACA</h2>
-        <hr>
-        <label>Lokasi:</label>
-        <input type="text" id="lokasiInput" placeholder="Masukkan nama kota...">
-        <button id="getWeather">GET</button>
-        <hr>
-        <div id="hasil">
-            <b>Hasil:</b>
-            <div id="tampilan"></div>
-        </div>
+    </style>
+</head>
+<body>
+    <h2>INFO CUACA</h2>
+    <hr>
+    <label>Lokasi:</label>
+    <input type="text" id="lokasiInput" placeholder="Masukkan nama kota...">
+    <button id="getWeather">GET</button>
+    <hr>
+    <div id="hasil">
+        <b>Hasil:</b>
+        <div id="tampilan"></div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -58,7 +57,8 @@
                 alert("Masukkan nama kota terlebih dahulu!");
                 return;
             }
-        const urlapi = "https://api.weatherapi.com/v1/current.json?key=fa8b1ac66aa344fc9ac11211250610&q=" + kota + "&aqi=no";
+
+            const urlapi = "https://api.weatherapi.com/v1/current.json?key=fa8b1ac66aa344fc9ac11211250610&q=" + kota + "&aqi=no";
             
             $.ajax({
                 url: urlapi,
@@ -80,5 +80,5 @@
             });
         });
     </script>
-    </body>
+</body>
 </html>
